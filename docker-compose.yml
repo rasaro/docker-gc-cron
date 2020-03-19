@@ -1,0 +1,10 @@
+version: "3"
+services:
+  dockergc:
+    image: clockworksoul/docker-gc-cron:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - TZ=${TIMEZONE}
+    deploy:
+      mode: global
