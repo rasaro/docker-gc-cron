@@ -4,7 +4,11 @@ services:
     image: clockworksoul/docker-gc-cron:latest
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - ./docker-gc-exclude:/etc/docker-gc-exclude
     environment:
+      - CRON=0 0 * * *
+      - FORCE_IMAGE_REMOVAL=1
+      - FORCE_CONTAINER_REMOVAL=1
       - TZ=${TIMEZONE}
     deploy:
       mode: global
