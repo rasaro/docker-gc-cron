@@ -11,7 +11,7 @@ Docker garbage collector configuration
 ## Building
 
 ```
-docker buildx build -t rsrp/docker-gc-cron --push --platform linux/amd64,linux/arm64 .
+docker buildx build -t rasaro/docker-gc-cron:latest --push --platform linux/amd64,linux/arm64,linux/arm .
 ```
 
 ## Running

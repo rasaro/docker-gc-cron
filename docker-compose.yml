@@ -1,7 +1,7 @@
 version: "3"
 services:
   dockergc:
-    image: rsrp/docker-gc-cron:latest
+    image: rasaro/docker-gc-cron:latest
     environment:
       - CRON=${CRON}
       - FORCE_IMAGE_REMOVAL=${FORCE_IMAGE_REMOVAL}
