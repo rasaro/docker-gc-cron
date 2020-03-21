@@ -1,14 +1,15 @@
 version: "3"
-services:
-  dockergc:
-    image: clockworksoul/docker-gc-cron:latest
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - ./docker-gc-exclude:/etc/docker-gc-exclude
-    environment:
-      - CRON=0 0 * * *
-      - FORCE_IMAGE_REMOVAL=1
-      - FORCE_CONTAINER_REMOVAL=1
-      - TZ=${TIMEZONE}
-    deploy:
-      mode: global
+dockergc:
+  image: rsrp/docker-gc-cron:latest
+  environment:
+    - CRON=${CRON}
+    - FORCE_IMAGE_REMOVAL=${FORCE_IMAGE_REMOVAL}
+    - FORCE_CONTAINER_REMOVAL=${FORCE_CONTAINER_REMOVAL}
+    - GRACE_PERIOD_SECONDS=${GRACE_PERIOD_SECONDS}
+    - DRY_RUN=${DRY_RUN}
+    - CLEAN_UP_VOLUMES=${CLEAN_UP_VOLUMES}
+    - TZ=${TZ}
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+  deploy:
+    mode: global
