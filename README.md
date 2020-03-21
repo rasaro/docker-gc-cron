@@ -5,7 +5,14 @@ Docker garbage collector configuration
 ## Requirements
 
 - Docker
+- Docker buildx
 - Docker compose
+
+## Building
+
+```
+docker buildx build -t rsrp/docker-gc --push --platform linux/amd64,linux/arm64 .
+```
 
 ## Running
 
@@ -22,5 +29,5 @@ Fill in fields in `.env`
 #### Run container
 
 ```
-docker stack deploy -c <(docker-compose config) dockergc
+docker stack deploy -c <(docker-compose config) docker-gc
 ```
