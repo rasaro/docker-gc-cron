@@ -17,5 +17,6 @@ RUN chmod 0755 /generate-crontab.sh
 RUN chmod 0755 /executed-by-cron.sh
 
 CMD /generate-crontab.sh > /var/log/cron.log 2>&1 \
+  && crontab crontab.tmp \
   && cron \
   && tail -f /var/log/cron.log
