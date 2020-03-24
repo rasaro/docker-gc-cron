@@ -3,13 +3,13 @@ services:
   dockergc:
     image: rasaro/docker-gc-cron:latest
     environment:
-      - CRON=${CRON}
-      - FORCE_IMAGE_REMOVAL=${FORCE_IMAGE_REMOVAL}
-      - FORCE_CONTAINER_REMOVAL=${FORCE_CONTAINER_REMOVAL}
-      - GRACE_PERIOD_SECONDS=${GRACE_PERIOD_SECONDS}
-      - DRY_RUN=${DRY_RUN}
-      - CLEAN_UP_VOLUMES=${CLEAN_UP_VOLUMES}
-      - TZ=${TZ}
+      - CRON=${DOCKER_GC_CRON}
+      - FORCE_IMAGE_REMOVAL=${DOCKER_GC_FORCE_IMAGE_REMOVAL}
+      - FORCE_CONTAINER_REMOVAL=${DOCKER_GC_FORCE_CONTAINER_REMOVAL}
+      - GRACE_PERIOD_SECONDS=${DOCKER_GC_GRACE_PERIOD_SECONDS}
+      - DRY_RUN=${DOCKER_GC_DRY_RUN}
+      - CLEAN_UP_VOLUMES=${DOCKER_GC_CLEAN_UP_VOLUMES}
+      - TZ=${DOCKER_GC_TZ}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     deploy:
